@@ -19,6 +19,7 @@ export default function Carrito() {
   const finalizarCompra = async () => {
     if (items.length === 0) return;
 
+    // se crea el array de items que muestra qué se compró
     const payload = {
       items: items.map((i) => ({
         mueble: i.id,
@@ -26,6 +27,8 @@ export default function Carrito() {
       })),
     };
 
+    // se mandan esos items en el payload
+    // axios intercepta y, si lo encuentra, inyecta el token en el header
     try {
       await api.post("/pedidos", payload);
 

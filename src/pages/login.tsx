@@ -81,6 +81,7 @@ const Login = () => {
         alert("¡Inicio de sesión exitoso!");
         window.location.href = "/";
       }
+      // se maneja lo que envia zod
     } catch (err: any) {
       if (err.response?.status === 400) {
         const issues = err.response.data.errors;
